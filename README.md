@@ -63,3 +63,24 @@ ffmpeg -input_format h264 -f video4linux2 -video_size 680x480  -framerate 15 -i 
 exit 0
 ```
 You can get the available formats with the next command `$v4l2-ctl --device=/dev/video0 -D --list-formats-ext`
+## Gdrive installation
+Gdrive is a command-line tool for managing your Google Gdrive from the Raspberry Pi.<br/>
+Start with the installation of Googles GO.<br/>
+Find `go1.17.7.linux-armv6l.tar.gz` at the [download page](https://go.dev/dl/).<br/>
+You have probably an armv8 (RPi Z2, 3 or 4), but the armv6 will work and is the only option here.<br/>
+```
+$ wget https://go.dev/dl/go1.17.7.linux-armv6l.tar.gz
+$ sudo tar -C /usr/local -xzf go1.17.7.linux-armv6l.tar.gz
+$ export PATH=$PATH:/usr/local/go/bin
+# check the version
+$ go version
+# output go version go1.17.7 linux/arm
+```
+With GO working, you can install gdrive.
+Because there is no Python wheel, we need to install it from the source. Hence the need for GO.<br/>
+```
+go get github.com/prasmussen/gdrive
+```
+The next step is getting the authorization key from Google. With the key in place, you can access your Gdrive.<br/>
+The key is only valid for the current Raspberry Pi and is located at `/home/pi/.gdrive` <br/>
+Note that everyone with access to this file has access to your Gdrive. Be careful.<br/>
