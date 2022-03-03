@@ -1,2 +1,65 @@
 # RPiMotionCam
 Raspberry Pi motion surveillance camera with email notification and gdrive storage
+
+## Autostart
+The autostart is defined in `/etc/xdg/lxsession/LXDE-pi/autostart`<br/>
+Once opened you see:
+```
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@lxterminal -e /usr/local/bin/StartCam.sh
+```
+The last line starts the motion camera application. You may remove this line.<br/>
+Do not alter the others because the RPi desktop needs them to start properly.<br/>
+```
+#!/bin/sh
+sleep 10
+MotionEvent
+```
+The simple script waits for 10 seconds to give the RPi time to establish the internet and mail connection.<br/>
+After this time, it starts MotionEvent, also located in `/usr/local/bin`.
+
+## Desktop icon
+The desktop icon is defined in `~/Desktop/Camera.desktop`<br/>
+```
+[Desktop Entry]
+Version=1.1
+Type=Application
+Encoding=UTF-8
+Name=Motion camera
+Comment=Motion camera
+Icon=/home/pi/software/Motion/CamIcon.png
+Exec=lxterminal -e MotionEvent
+Name[en_GB]=Motion
+```
+## Menu icon
+The menu entry is defined in `/usr/share/applications/motion-cam.desktop`<br/>
+```
+[Desktop Entry]
+Name=Motion Camera
+GenericName=Motion Camera
+Comment=RPi motion camera
+Exec=lxterminal -e /usr/local/bin/MotionEvent
+Icon=/home/pi/software/Motion/CamIcon.png
+Categories=AudioVideo;
+Terminal=true
+Type=Application
+```
+## Changing the resolution
+You can change the resolution of the recorded video, depending on the supported formats of the RPi camera and your computing power.<br/>
+For instance, a Raspberry Pi Zero will have troubles with a large format, as where the RPi 4 may still run quietly.<br/>
+The format for the background subtractor will always be 320x240. The output is a percentage, no need for CPU absorbing large resolutions.<br/>
+See line 43 in Qstreamer.cpp
+```
+cv::resize(frame, norm_frame, cv::Size(320, 240));
+```
+The resolution is defined at the end of `/etc/rc.local`<br/>
+In the example below 680x480.
+```
+#start streaming (notice the & at the end)
+ffmpeg -input_format h264 -f video4linux2 -video_size 680x480  -framerate 15 -i /dev/video0 -c:v copy -an -f flv rtmp://localhost/live/rpi &
+
+exit 0
+```
+You can get the available formats with the next command `$v4l2-ctl --device=/dev/video0 -D --list-formats-ext`
