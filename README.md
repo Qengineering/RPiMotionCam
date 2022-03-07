@@ -54,7 +54,7 @@ Comment=RPi motion camera
 Exec=lxterminal -e /usr/local/bin/MotionEvent
 Icon=/home/pi/software/Motion/CamIcon.png
 Categories=AudioVideo;
-Terminal=true
+Terminal=false
 Type=Application
 ```
 ## Changing the resolution
