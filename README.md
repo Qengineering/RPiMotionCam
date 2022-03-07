@@ -76,6 +76,8 @@ exit 0
 You can get the available formats with the next command `$v4l2-ctl --device=/dev/video0 -D --list-formats-ext`
 ## Gdrive installation
 Gdrive is a command-line tool for managing your Google Gdrive from the Raspberry Pi.<br/>
+**If you use our image it's already installed.**<br/>
+However, if you want to install it on another RPi, here are the steps.<br/>
 Start with the installation of Googles GO.<br/>
 Find `go1.17.7.linux-armv6l.tar.gz` at the [download page](https://go.dev/dl/).<br/>
 You have probably an armv8 (RPi Z2, 3 or 4), but the armv6 will work and is the only option here.<br/>
@@ -90,8 +92,26 @@ $ go version
 With GO working, you can install gdrive.
 Because there is no Python wheel, we need to install it from the source. Hence the need for GO.<br/>
 ```
-go get github.com/prasmussen/gdrive
+$ go get github.com/prasmussen/gdrive
+$ cd ~/go/bin
+$ sudo cp ./gdrive /usr/local/bin
 ```
 The next step is getting the authorization key from Google. With the key in place, you can access your Gdrive.<br/>
 The key is only valid for the current Raspberry Pi and is located at `/home/pi/.gdrive` <br/>
-Note that everyone with access to this file has access to your Gdrive. Be careful.<br/>
+Note that everyone with access to this file has access to your Gdrive. Be careful.<br/><br/>
+Give the command `$ gdrive about` and copy-paste the URL in your browser.<br/>
+![output image]( https://qengineering.eu/images/Gdrive_About.webp )<br/><br/>
+After logging into your Google account, you will be asked if you want to give your project access to the gdrive.<br/>
+![output image]( https://qengineering.eu/images/Google_Accounts_Gdrive.webp )<br/><br/>
+Once allowed, you get a unique code that can be copy-pasted back to the terminal screen.<br/>
+![output image]( https://qengineering.eu/images/Gdrive_Key.webp )<br/><br/>
+Now your gdrive is up and running. You can test it with the `$ gdrive list` command.
+## email notification
+**If you use our image it's already installed.**<br/>
+We use gmail as it can forward your mails to any other address.<br/>
+However, if you want to install the email engine on another RPi, here are the steps.<br/>
+```
+$ sudo apt-get install msmtp ca-certificates
+$ sudo nano /etc/msmtprc
+```
+![output image]( https://qengineering.eu/images/Email_google.webp )<br/><br/>
