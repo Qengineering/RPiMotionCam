@@ -128,3 +128,4 @@ The motion camera consists of four parts.<br/> All four run in a separate proces
 4) The last part is the recording. If a USB memory device is connected, the recorder will use it. If not, they are stored at `var/www/html/rec`. If Gdrive is enabled, the recording uploads upon completion. The original recording is deleted if this option is set. Be careful when using the overlay feature (the Raspberry Pi's read-only safety mode). All writes are in RAM. Make sure you have enough space. The program does not check this. Another FFmpeg stream takes care of the recording. This way, you also save the images 5 seconds before the movement event. In other words, you see the postman walking up the porch instead of just walking out of your yard just because of a time-lapse when the shooting starts. The latter will be the case if you use Nginx's recording facilities.
 ## Gparted
 ## Settings
+## Overlay
