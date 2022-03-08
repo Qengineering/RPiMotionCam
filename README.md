@@ -128,4 +128,33 @@ The motion camera consists of four parts.<br/> All four run in a separate proces
 4) The last part is the recording. If a USB memory device is connected, the recorder will use it. If not, they are stored at `/home/pi/Videos`. If Gdrive is enabled, the recording uploads upon completion. The original recording is deleted if this option is set. Be careful when using the overlay feature (the Raspberry Pi's read-only safety mode). All writes are in RAM. Make sure you have enough space. The program does not check this. Another FFmpeg stream takes care of the recording. This way, you also save the images 5 seconds before the movement event. In other words, you see the postman walking up the porch instead of just walking out of your yard just because of a time-lapse when the shooting starts. The latter will be the case if you use Nginx's recording facilities.
 ## Gparted
 ## Settings
+Settings are found at '/mnt/WRdisk/settings.txt'. The '/mnt/WRdisk/' location is only folder which can be writen even with the overlay function active. All the other folders not hold their data after a reboot. See the [overlay]() item for more information.<br/>
+You have the following settings:<br/>
+
+| setting | Description |
+| ------- | ----------- |
+| [Section1] | Identifier, don't change. |
+| cam_name = 1 | The camera number will appear in your emails (in case you have more cameras active). |   
+| email = none | Your personal e-mail address where the e-mails will be sent. `None` disables email notification. |
+| gmail = johndoe123@gmail.com | Your gmail account, used for storage and re-directing emails. |
+| recording = 1 | `1` enables recording, `0` disables recording. |
+| rec_prolong = 10 | Extends the recording by `x` seconds after an event.<br/>It avoids a succession of tiny recordings: the postman rings - the postman leaves (to check the back door) - the postman comes back on the scene (no one at the back door) - the postman leaves (writes a note in his car) - the postman comes back - and so on.|
+| set_trigger = 1.4 | Threshold to set a detect motion event.<br/>Use the diagnosis screen to get an idea of what percentage you should take. Guarding your backyard requires different thresholds than the front doorbell.  |
+| reset_trig = 0.1 | Threshold to reset a motion event. |
+| no_sec_mail = 90 | After an email is sent, no second email within `x` seconds.<br/>(No need for an avalanche of emails once your kid has let the dog loose in the backyard). |
+| gdrive = 1 |  `1` enables Gdrive storage, `0` disables storage. |
+| up_and_del = 1 | `1` deletes a recording from the Raspberry Pi (SD card or USB) once uploaded to Gdrive. Highly recommended!<br/>`0` saves all recordings, which will eventually take up all the space on your system. If not taken care of often, your Raspberry PI will crash due to memory shortage. |
+
 ## Overlay
+As is known, an SD card will wear out over time. Especially when it's written on. If you start recording events on your SD card, you not only run the risk of running out of space, but your SD card will wear out very quickly due to the constant writing. Don't be surprised if your app stops working after a few months due to SD corruption.
+Uploading the recordings to Gdrive does not help. You still have to write them to SD first before uploading them. Streaming directly to GDrive would be an option, but Google Drive does not support such a feature. It is better to use a USB memory stick. As the app starts, it checks the USB ports for memory. If available, the app will use the USB device. Still, you have the option to upload and then delete recordings, which limits USB usage.
+The USB solution will definitely reduce the number of writes to your SD card, extending its lifespan.
+Even better is using the overlay feature on the Raspberry Pi. All reads are still from the SD card. All writes are redirected to RAM. You still have the same directory structure, but are now in RAM. You'll never write a byte to your SD card again. (In theory - for the purists). Your SD card will now last for many years.
+Use the menu option Performance in the Raspberry Pi Configuration to enable the overlay feature:<br/><br/>
+![output image]( https://qengineering.eu/images/OverlayMotion.webp )<br/><br/>
+To remove the overlay, reverse the procedure.
+Two remarks.<br/>
+Make sure you have enough RAM for recording. Use `$free -m` to check the available space. As a rule of thumb, 1 minute of mp4 takes about 4 to 6 MB. The program doesn't check the memory before storing a recording; it just starts. In the worst case, your app will crash. It is more likely the case with the RPi Zero 2 with its 512 MB than with an RPi 4 with 8 GB of RAM.
+When you start programming, remove the overlay beforehand! Otherwise, you will generate new code that will work fine as long as the power remains on. After a reboot, you lose all the hard work. Speaking from experience!<br/>
+More information on our [website](https://qengineering.eu/protect-the-raspberry-pi-4-sd-flashcard.html)<br/>
+
