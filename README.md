@@ -136,7 +136,7 @@ You have the following settings:<br/>
 | [Section1] | Identifier, don't change. |
 | cam_name = 1 | The camera number will appear in your emails (in case you have more cameras active). |   
 | email = none | Your personal e-mail address where the e-mails will be sent. `None` disables email notification. |
-| gmail = johndoe123@gmail.com | Your gmail account, used for storage and re-directing emails. |
+| gmail = johndoe123@gmail.com | Your gmail account used for storage and re-directing emails. |
 | recording = 1 | `1` enables recording, `0` disables recording. |
 | rec_prolong = 10 | Extends the recording by `x` seconds after an event.<br/>It avoids a succession of tiny recordings: the postman rings - the postman leaves (to check the back door) - the postman comes back on the scene (no one at the back door) - the postman leaves (writes a note in his car) - the postman comes back - and so on.|
 | set_trigger = 1.4 | Threshold to set a detect motion event.<br/>Use the diagnosis screen to get an idea of what percentage you should take. Guarding your backyard requires different thresholds than the front doorbell.  |
