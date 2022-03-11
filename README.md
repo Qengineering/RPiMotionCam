@@ -43,7 +43,9 @@ After reboot, you must have video footage in your browser. Just give the Raspber
 ## Donations.
 Writing the app was a lot of work. Still, we want to give you all the source code for free. As well as the FFmpeg streaming solutions.<br/>
 However, we really appreciate it if you show your appreciation by making a donation.<br/>
-[![paypal](https://qengineering.eu/images/TipJarSmall4.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPZTM5BB3FCYL)
+[![paypal](https://qengineering.eu/images/TipJarSmall4.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPZTM5BB3FCYL)<br/><br/><br/>
+
+![output image]( https://qengineering.eu/images/GdriveMotion.webp)
 
 ------------
 
