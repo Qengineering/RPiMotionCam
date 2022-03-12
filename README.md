@@ -8,7 +8,7 @@ https://user-images.githubusercontent.com/44409029/156776492-51b29ff9-b3c7-4e85-
 This application is a fully-featured security Raspberry Pi camera. It can be built with the Raspberry Pi 4, 3 or the tiny Zero 2.<br/>
 With an inexpensive RPi V1 camera ($ 7,=), you'll have your security camera up and running in no time.<br/>
 You will automatically receive an email when the camera detects a movement.<br/>
-At the same time, a video recording will be made and saved to your Google drive.<br/>
+At the same time, a optional video recording will be saved to SD-card, USB stick or your Google drive.<br/>
 You can view your footage in your browser at any time.<br/>
 You don't need to be able to program.<br/> However, the used C++ source code comes with the image.<br/>
 
