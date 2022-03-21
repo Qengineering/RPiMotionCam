@@ -63,6 +63,7 @@ The main goal was to write the simplest possible app without compromising functi
 Of course, this strategy comes with a price.<br/>
 - We use the Debian 10 (Buster) 32-bit operating system. FFmpeg is the only streaming framework that frees the CPU complete from all streaming activity. However, the current FFmpeg does not support the new camera functionality found on the Bullseye release for the Raspberry Pi. Once FFmpeg handles the libcamera completely via the GPU, we can transfer the app to Bullseye. Until then, we'll have to stick with Buster. (Which, by the way, is not a severe punishment).
 - If we can make something work with one or two lines of script, we use it with the `system()` call, instead of writing a lot of C++ code to emulate the same functionality.
+- We don't use a firewall, something neither found on the original Buster OS. If you want to use a firewall, Google is your friend. 
 - We don't check anything in advance. No extensive check of disk space, USB mounting, email verification, etc. 
 
 ------------
