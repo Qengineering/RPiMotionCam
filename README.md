@@ -17,9 +17,9 @@ You don't need to be able to program.<br/> However, the used C++ source code com
 ## Installation.
 
 - Get a SD-card (min 16 GB) which will hold the image. 
-- For the Raspberry Pi **4** download the image Motion_RPi4.xz (2.16 GByte!) from our [Gdrive](https://drive.google.com/file/d/1OrAM2Ls7Mwfz1Iyn6cYq6VS0UUDWQxWL/view?usp=sharing) site.
-- For the Raspberry Pi **3** download the image Motion_RPi3.xz (2.16 GByte!) from our [Gdrive]() site.
-- For the Raspberry Pi **Zero 2** download the image Motion_RPiZ2.xz (2.16 GByte!) from our [Gdrive]() site.
+- For the Raspberry Pi **4** download the image Motion_RPi4.xz (2.16 GByte!) from our [Gdrive](https://drive.google.com/file/d/1SlzS6pTKNalHrkJmOypIAP8qUz8N-fBb/view?usp=sharing) site.
+- For the Raspberry Pi **3** download the image Motion_RPi3.xz (2.16 GByte!) from our [Gdrive](https://drive.google.com/file/d/1t2g581BfrkAoj8MTrsOW6529B_4mV6Gq/view?usp=sharing) site.
+- For the Raspberry Pi **Zero 2** download the image Motion_RPiZ2.xz (2.16 GByte!) from our [Gdrive](https://drive.google.com/file/d/1ggrvKKqnX4Rma3avfO9KtBpkx3raRz9x/view?usp=sharing) site.
 - Flash the image on the SD-card with the [Imager](https://www.raspberrypi.org/software/) or [balenaEtcher](https://www.balena.io/etcher/).
 - Insert the SD-card in your Raspberry Pi.
 - Wait a few minutes, while the image will expand to the full size of your SD card.
