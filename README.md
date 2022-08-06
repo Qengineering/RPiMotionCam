@@ -2,7 +2,7 @@
 
 https://user-images.githubusercontent.com/44409029/156776492-51b29ff9-b3c7-4e85-9587-974a2d363a77.mp4
 
-## Raspberry Pi motion surveillance camera with email notification and gdrive storage
+## Raspberry Pi motion surveillance camera with live feed, email notification and event triggered gdrive storage
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)<br/><br/>
 
 This application is a fully-featured security Raspberry Pi camera. It can be built with the Raspberry Pi 4, 3 or the tiny Zero 2.<br/>
