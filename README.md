@@ -12,7 +12,7 @@ At the same time, a optional video recording will be saved to SD-card, USB stick
 You can view your footage in your browser at any time.<br/>
 You don't need to be able to program.<br/> However, the used C++ source code comes with the image.<br/>
 
-------------
+-------------
 
 ## Installation.
 
